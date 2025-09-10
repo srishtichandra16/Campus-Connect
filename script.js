@@ -11,14 +11,14 @@ window.addEventListener('load', function() {
 
 // Sample data for search functionality
 const sampleItems = [
-  { id: 1, title: "Lab Coat", category: "drafting", price: "₹400", description: "Lab Coat, good condition", image: "image/lab_coat.webp" },
-  { id: 2, title: "Notebook Pack (5)", category: "stationery", price: "₹200", description: "College-ruled notebooks", image: "image/note_books.jpg" },
-  { id: 3, title: "Drafter (A4)", category: "drafting", price: "₹600", description: "Sturdy A4-sized drafter", image: "image/drafter.jfif" },
-  { id: 4, title: "Scientific Calculator", category: "electronics", price: "₹1,200", description: "Casio fx-series (used)", image: "image/calci.jpg" },
-  { id: 5, title: "Engineering Mathematics", category: "books", price: "₹350", description: "Latest edition, minimal highlighting", image: "image/eng_maths_books.webp" },
-  { id: 6, title: "Geometry Box Set", category: "stationery", price: "₹150", description: "Complete set with compass, protractor", image: "image/geo_box.webp" },
-  { id: 7, title: "T-Square (60cm)", category: "drafting", price: "₹300", description: "Professional grade T-square", image: "image/square_scale.jpg" },
-  { id: 8, title: "Laptop Charger", category: "electronics", price: "₹800", description: "Universal laptop charger", image: "image/lp_charger.jpg" }
+  { id: 1, title: "Lab Coat", category: "drafting", price: "₹400", description: "Lab Coat, good condition", image: "public/image/lab_coat.webp" },
+  { id: 2, title: "Notebook Pack (5)", category: "stationery", price: "₹200", description: "College-ruled notebooks", image: "public/image/note_books.jpg" },
+  { id: 3, title: "Drafter (A4)", category: "drafting", price: "₹600", description: "Sturdy A4-sized drafter", image: "public/image/drafter.jfif" },
+  { id: 4, title: "Scientific Calculator", category: "electronics", price: "₹1,200", description: "Casio fx-series (used)", image: "public/image/calci.jpg" },
+  { id: 5, title: "Engineering Mathematics", category: "books", price: "₹350", description: "Latest edition, minimal highlighting", image: "public/image/eng_maths_books.webp" },
+  { id: 6, title: "Geometry Box Set", category: "stationery", price: "₹150", description: "Complete set with compass, protractor", image: "public/image/geo_box.webp" },
+  { id: 7, title: "T-Square (60cm)", category: "drafting", price: "₹300", description: "Professional grade T-square", image: "public/image/square_scale.jpg" },
+  { id: 8, title: "Laptop Charger", category: "electronics", price: "₹800", description: "Universal laptop charger", image: "public/image/lp_charger.jpg" }
 ];
 
 // Toggle mobile menu
