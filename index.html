@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Campus Connect - Student Marketplace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-container">
+    <div class="brand">
+      <span class="brand-icon">🎓</span>
+      Campus Connect
+    </div>
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="#browse" class="nav-link">Browse</a>
+      <a href="#featured" class="nav-link">Sell</a>
+      <div id="nav-auth">
+        <a href="#" class="nav-link" onclick="showLogin()">Login</a>
+        <a href="#" class="nav-link signup-btn" onclick="showSignup()">Sign Up</a>
+      </div>
+    </nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-background"></div>
+  <div class="container">
+    <div class="hero-content">
+      <h1>Buy & Sell Student Essentials</h1>
+      <p class="hero-description">Stationery, drafting tools, books, calculators — connect with fellow students near you.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary" onclick="scrollToSection('browse')">Start Browsing</button>
+        <button class="btn btn-secondary" onclick="postItem()">Post an Item</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container browse-section" id="browse">
+  <h2>Browse Items</h2>
+  <div class="browse-controls">
+    <div class="search-container">
+      <input 
+        type="text" 
+        id="searchInput" 
+        class="search-input" 
+        placeholder="Search category (e.g., books, stationery)">
+      <button class="btn btn-search" onclick="searchItems()">🔍</button>
+    </div>
+    <button class="btn btn-post" onclick="postItem()">+ Post Item</button>
+  </div>
+  <div id="searchResults" class="grid"></div>
+</div>
+
+<div class="container" id="featured">
+  <h2>Featured Listings</h2>
+  <div class="grid">
+    <div class="card">
+      <div class="card-image">
+        <img src="image/lab_coat.webp" alt="book">
+        <div class="card-badge">Popular</div>
+      </div>
+      <div class="card-content">
+        <h3>Lab Coat</h3>
+        <p class="card-description">Lab, good condition</p>
+        <div class="card-footer">
+          <p class="price">₹400</p>
+          <button class="btn btn-primary btn-small">Message Seller</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <img src="image/note_books.jpg" alt="stationery">
+        <div class="card-badge">New</div>
+      </div>
+      <div class="card-content">
+        <h3>Notebook Pack (5)</h3>
+        <p class="card-description">College-ruled notebooks</p>
+        <div class="card-footer">
+          <p class="price">₹200</p>
+          <button class="btn btn-primary btn-small">Message Seller</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <img src="image/drafter.jfif" alt="drafter">
+        <div class="card-badge">Like New</div>
+      </div>
+      <div class="card-content">
+        <h3>Drafter (A4)</h3>
+        <p class="card-description">Sturdy A4-sized drafter</p>
+        <div class="card-footer">
+          <p class="price">₹600</p>
+          <button class="btn btn-primary btn-small">Message Seller</button>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-image">
+        <img src="image/calci.jpg" alt="calculator">
+        <div class="card-badge">Good Deal</div>
+      </div>
+      <div class="card-content">
+        <h3>Scientific Calculator</h3>
+        <p class="card-description">Casio fx-series (used)</p>
+        <div class="card-footer">
+          <p class="price">₹1,200</p>
+          <button class="btn btn-primary btn-small">Message Seller</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('loginModal')">&times;</span>
+    <h2>Login to Campus Connect</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="loginEmail">Email Address:</label>
+        <input type="email" id="loginEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" required>
+      </div>
+      <div class="form-group">
+        <label for="loginPassword">Password (6 digits):</label>
+        <input type="password" id="loginPassword" required pattern="[0-9]{6}" maxlength="6" placeholder="Enter 6-digit password">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <p class="modal-switch">Don't have an account? <a href="#" onclick="switchToSignup()">Sign up here</a></p>
+    </form>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signupModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('signupModal')">&times;</span>
+    <h2>Join Campus Connect</h2>
+    <form id="signupForm">
+      <div class="form-group">
+        <label for="signupName">Full Name:</label>
+        <input type="text" id="signupName" required>
+      </div>
+      <div class="form-group">
+        <label for="signupUsername">Username:</label>
+        <input type="text" id="signupUsername" required>
+      </div>
+      <div class="form-group">
+        <label for="signupEmail">Email Address:</label>
+        <input type="email" id="signupEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="signupPassword">Password (6 digits):</label>
+        <input type="password" id="signupPassword" required pattern="[0-9]{6}" maxlength="6" placeholder="Create 6-digit password">
+      </div>
+      <div class="form-group">
+        <label for="signupCollege">College/University:</label>
+        <input type="text" id="signupCollege" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+      <p class="modal-switch">Already have an account? <a href="#" onclick="switchToLogin()">Login here</a></p>
+    </form>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-wave">
+    <svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,60 C150,120 350,0 600,60 C850,120 1050,0 1200,60 L1200,120 L0,120 Z" fill="currentColor"></path>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section footer-main">
+        <h3 class="footer-brand">
+          <span class="brand-icon">🎓</span>
+          Campus Connect
+        </h3>
+        <p class="footer-description">Creating meaningful connections between students for everyday essentials.</p>
+        <div class="category-list">
+          <a class="category-link" href="#" onclick="searchCategory('books')">📚 Books</a>
+          <a class="category-link" href="#" onclick="searchCategory('stationery')">✏️ Stationery</a>
+          <a class="category-link" href="#" onclick="searchCategory('drafting')">📐 Drafting Tools</a>
+          <a class="category-link" href="#" onclick="searchCategory('electronics')">🔌 Electronics</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showInfo('about')">About Us</a></li>
+          <li><a href="#" onclick="showInfo('how-it-works')">How it Works</a></li>
+          <li><a href="#" onclick="showInfo('safety')">Safety Tips</a></li>
+          <li><a href="#" onclick="showInfo('help')">Help Center</a></li>
+          <li><a href="#" onclick="showInfo('contact')">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Community</h4>
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <span class="social-icon">🐦</span>
+            Twitter
+          </a>
+          <a href="#" class="social-link">
+            <span class="social-icon">💼</span>
+            LinkedIn
+          </a>
+          <a href="#" class="social-link">
+            <span class="social-icon">📱</span>
+            Instagram
+          </a>
+          <a href="#" class="social-link">
+            <span class="social-icon">💬</span>
+            Discord
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Campus Connect. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="#" onclick="showInfo('privacy')">Privacy Policy</a>
+        <a href="#" onclick="showInfo('terms')">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src ="script.js"></script>
+</body>
+</html>
